@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  lean-dev:
+    tty: true
+    build:
+      context: .
+      target: lean-dev
+    volumes:
+      - ./lean_dev_cont:/root/work
+    networks:
+      - lean_db_net
+  postgre_db:
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: password
+    ports:
+      - 15432:5432
+    volumes:
+      - ./db:/var/lib/postgresql
+    networks:
+      - lean_db_net
+
+networks:
+  lean_db_net:
+    driver: bridge

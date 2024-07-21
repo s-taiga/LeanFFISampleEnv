@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "pqxx": "cpp",
+        "string": "cpp",
+        "libpq-fe.h": "c"
+    }
+}
